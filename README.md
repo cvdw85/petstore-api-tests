@@ -31,7 +31,7 @@ The API is public and does not require real authentication, but an `api_key` hea
 
 1. Clone the repository:
    ```bash
-   git clone <your_repo_url>
+   git clone https://github.com/cvdw85/petstore-api-tests
    cd petstore-api-tests
 
 2. Install dependencies:
