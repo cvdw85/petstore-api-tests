@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                       // Modern JS output
+    "module": "CommonJS",                     // Node.js compatible
+    "moduleResolution": "Node",               // How modules are resolved
+    "outDir": "dist",                         // Compiled JS output folder
+    "strict": true,                           // Enables strict type checking
+    "esModuleInterop": true,                  // Allows default imports from CJS modules
+    "skipLibCheck": true,                     // Speeds up build (skip .d.ts checks)
+    "forceConsistentCasingInFileNames": true, // Avoid case issues
+    "types": ["node", "@playwright/test"]     // <-- Key for Playwright
+  },
+  "include": [
+    "src"                                     // Include all test & code files
+  ]
+}
