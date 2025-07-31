@@ -47,5 +47,5 @@ The API is public and does not require real authentication, but an `api_key` hea
    npx playwright test --reporter=list
 
 2. Security note:
-   The Api key is not provided in this project.
-   Ask another Dev to provide it to you.
+   Copy content from .env.template to your .env file
+   Get the apiKey from your Dev
