@@ -1,16 +1,15 @@
 import { APIRequestContext, APIResponse } from '@playwright/test';
 
-export class PetApi {
-  private apiKey: string;
+export class PetApiClient {
   private apiPetURL: string;
   private headers: Record<string, string>;
 
   constructor(private request: APIRequestContext, private baseURL: string) {
-    this.apiKey = process.env.API_KEY || '';
+    const apiKey = process.env.API_KEY || '';
     this.apiPetURL = `${this.baseURL}/pet`;
     this.headers = {
       'Content-Type': 'application/json',
-      'api_key': this.apiKey
+      'api_key': apiKey
     };
   }
 

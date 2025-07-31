@@ -1,5 +1,5 @@
 import { test, expect, request } from '@playwright/test';
-import { PetApi } from '../api/pet.api';
+import { PetApiClient } from '../apiClient/pet.api.client';
 
 interface Pet {
   id: number;
@@ -26,13 +26,13 @@ const RETRY_CONFIG = {
 };
 
 test.describe('Petstore API Tests', () => {
-  let petApi: PetApi;
+  let petApi: PetApiClient;
   const baseURL = process.env.BASE_URL || 'https://petstore.swagger.io/v2';
   const petId = Date.now();
 
   test.beforeAll(async () => {
     const apiContext = await request.newContext();
-    petApi = new PetApi(apiContext, baseURL);
+    petApi = new PetApiClient(apiContext, baseURL);
   });
 
   async function waitForPet(petId: number): Promise<import('@playwright/test').APIResponse> {
@@ -58,8 +58,8 @@ test.describe('Petstore API Tests', () => {
     const body = await response.json();
     expect(body, 'Expected response body to match the created pet').toMatchObject({
       id: petId,
-      name: 'Fluffy',
-      status: 'available'
+      name: PET_DATA.initial.name,
+      status: PET_DATA.initial.status
     });
   });
 
@@ -73,8 +73,8 @@ test.describe('Petstore API Tests', () => {
     const body = await response.json();
     expect(body, 'Expected response body to match the pet').toMatchObject({
       id: petId,
-      name: 'Fluffy',
-      status: 'available'
+      name: PET_DATA.initial.name,
+      status: PET_DATA.initial.status
     });
   });
 
@@ -89,8 +89,8 @@ test.describe('Petstore API Tests', () => {
     const body = await response.json();
     expect(body, 'Expected response body to match the updated pet').toMatchObject({
       id: petId,
-      name: 'FluffyUpdated',
-      status: 'sold'
+      name: PET_DATA.updated.name,
+      status: PET_DATA.updated.status
     });
   });
 });
