@@ -47,5 +47,5 @@ The API is public and does not require real authentication, but an `api_key` hea
    npx playwright test --reporter=list
 
 2. Security note:
-   API key is stored securely in the .env file.
-   .env is ignored by git (.gitignore) to prevent accidental commits of sensitive data.
+   Copy content from .env.template to your .env file
+   Get the apiKey from your Dev
